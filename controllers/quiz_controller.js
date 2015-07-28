@@ -14,16 +14,19 @@ exports.load = function (req, res, next, quizId) {
 
 //GET /quizes/
 exports.index = function (req, res){
+
 	var search=req.query.search;
+	var sql_search = "pregunta like ?";
+
 	if (search===undefined){
 		search="%";
 	} else {
 		search = '%'+search.replace(/ /g, "%")+'%';	
+		sql_search += "ORDER BY pregunta";
 	}
 
-	models.Quiz.findAll({where: ["pregunta like ? ORDER BY pregunta", search]}).then(function(quizes){
-		console.log ("BUSCAR: "+req.query.search);
-		res.render('quizes/index.ejs', { quizes: quizes});
+	models.Quiz.findAll({where: [ sql_search, search]}).then(function(quizes){
+		res.render('quizes/index.ejs', { quizes: quizes, search: req.query.search});
 	}).catch(function(error) { next(error);})
 };
 
