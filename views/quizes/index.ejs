@@ -1,4 +1,16 @@
+<p>
+<form method="get" action="/quizes">
+	<input type="text" name="search" value="Buscar">
+	<input type="submit" value="Buscar">
+</form>
+</p>
+
 <table>
+<p>
+<% if (search !== undefined){%>
+	Búsqueda por: <%= search %>
+<%}%>
+</p>
 <% var i; for (i=0; i < quizes.length; i++) { %>
 	<tr><td><a href="/quizes/<%= quizes[i].id %>"><%= quizes[i].pregunta %></a></td></tr>
 <% } %>
