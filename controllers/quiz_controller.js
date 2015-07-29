@@ -111,5 +111,5 @@ exports.destroy = function (req, res){
 
 //GET /author
 exports.author = function (req, res){
-	res.render('author', {autor: 'Diego', imagen: '/images/anonimo.jpg'});
+	res.render('author', {autor: 'Diego', imagen: '/images/anonimo.jpg', errors: []});
 }
