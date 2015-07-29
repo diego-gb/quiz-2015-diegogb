@@ -39,13 +39,36 @@ sequelize.sync().then(function() {
 	Quiz.count().then(function (count){
 		if (count === 0) { //la tabla se inicializa solo si está vacía
 			Quiz.create({ pregunta:  'Capital de Italia2',
-						  respuesta: 'Roma'
+						  respuesta: 'Roma',
+						  tema: 	 'otro' 
 						});
 			Quiz.create({ pregunta:  'Capital de Italia1',
-						  respuesta: 'Roma'
+						  respuesta: 'Roma',
+						  tema: 	 'otro'
 						});
 			Quiz.create({ pregunta:  'Capital de Portugal',
-						  respuesta: 'Lisboa'
+						  respuesta: 'Lisboa',
+						  tema: 	 'otro'
+						});
+			Quiz.create({ pregunta:  'Quién dijo: "Sólo sé que no se nada"',
+						  respuesta: 'Sócrates',
+						  tema: 	 'humanidades'
+						});
+			Quiz.create({ pregunta:  'Número mínimo de bits para almacenar el número 7',
+						  respuesta: '3',
+						  tema: 	 'tecnologia'
+						});
+			Quiz.create({ pregunta:  'Primer apellido de la persona que más influyó en la corriente alterna',
+						  respuesta: 'Tesla',
+						  tema: 	 'tecnologia'
+						});
+			Quiz.create({ pregunta:  'Nombre artístico del rapero más conocido de Violadores del Verso',
+						  respuesta: 'Kase O',
+						  tema: 	 'ocio'
+						});
+			Quiz.create({ pregunta:  'Qué tiene más densidad: Agua o Aceite',
+						  respuesta: 'Agua',
+						  tema: 	 'ciencia'
 						})
 			.then(function(){console.log('Base de datos inicializada')});
 		};
