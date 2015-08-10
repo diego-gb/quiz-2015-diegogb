@@ -1,0 +1,11 @@
+<h1>Estadísticas:</h1>
+
+<ul>
+  <li><strong>Número de preguntas:</strong> <%= statistics.num_quizzes %></li>
+  <li><strong>Número de comentarios totales:</strong> <%= statistics.num_comments %></li>
+  <li><strong>Número medio de comentarios por pregunta:</strong> <%= (statistics.num_comments*100 / statistics.num_quizzes).toFixed(2)+'%' %></li>
+  <li><strong>Número de preguntas sin comentarios:</strong> <%= statistics.num_quizzes_without_comments %></li>
+  <li><strong>Número de preguntas con comentarios:</strong> <%= statistics.num_quizzes_with_comments %></li>
+  <li><strong>Comentarios no publicados:</strong> <%= statistics.commentsUnpublished %>
+    (<%= (statistics.commentsUnpublished * 100 / statistics.num_comments).toFixed(2)+'%'%>)</li>
+</ul>
